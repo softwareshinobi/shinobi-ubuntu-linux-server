@@ -1,22 +1,17 @@
-
 services:
-
-    software-shinobi-linux:
-        
-        container_name: software-shinobi-linux
-
+    sian-servers-embanet-online:
+        container_name: sian-servers-embanet-online
         build: 
-
             context: .
-
             dockerfile: Dockerfile
-
         image: softwareshinobi/embanet-ubuntu-linux:sian
-
         hostname: sian
-
-        domainname: sian.embanet.online
-
+        domainname: sian.servers.embanet.online
         ports:
-
             - "2222:22"
+        #user: "4444:994"
+
+        volumes:
+            - /tmp/volumes/embanet.online/servers/sian/:/home/shinobi
+
+        restart: unless-stopped
